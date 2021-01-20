@@ -1,2 +1,2 @@
 # pyMonitorApp
-Project that consist of a backend, a mobile app and some electronic.
+Get temperature by a raspberry pi 3B+ from a DHT11 electronic compoment and a flask backend throught a nice looking mobile app.

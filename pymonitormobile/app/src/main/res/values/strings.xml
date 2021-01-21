@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">pymonitormobile</string>
+
+    <!--Page 1-->
+    <string name="btn_find_pi">Trouver mon PI</string>
+    <string name="btn_pi_monitor">Mode monitoring</string>
+    <string name="label_internet"><b>Connection Internet :</b></string>
+    <string name="label_status"><b>Raspberry Pi :</b></string>
+
+    <!--Page 2-->
+    <string name="label_sonde"><b>Information venant de la sonde :</b></string>
+    <string name="label_temp_sonde"><b>Température de la pièce :</b></string>
+    <string name="label_hum_sonde"><b>Humidité de la pièce :</b></string>
+
+    <string name="label_internet2"><b>Météo Wavre (Internet) :</b></string>
+    <string name="label_temp_internet"><b>Température à Wavre :</b></string>
+    <string name="label_hum_internet"><b>Humidité à Wavre :</b></string>
+</resources>

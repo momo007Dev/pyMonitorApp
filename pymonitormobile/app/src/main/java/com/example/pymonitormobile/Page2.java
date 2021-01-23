@@ -53,7 +53,6 @@ public class Page2 extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        /*
         refresh_sensor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +64,7 @@ public class Page2 extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
 
         refresh_api_data.setOnClickListener(new View.OnClickListener() {
             @Override

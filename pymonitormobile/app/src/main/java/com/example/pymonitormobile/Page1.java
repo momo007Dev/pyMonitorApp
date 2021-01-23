@@ -32,7 +32,7 @@ public class Page1 extends AppCompatActivity {
         final String ipAddress = Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress());
         //ipAdress is the IP of android device => Could be used to get the subnet and then ping everyone,...
 
-        TextView label_status = findViewById(R.id.label_status_internet);
+        TextView label_status = findViewById(R.id.label_status_internet); // Connection Internet
         final TextView label_connection = findViewById(R.id.label_status_connection);
 
         Button find_rapsberry_btn = findViewById(R.id.btn_find_pi);
@@ -41,15 +41,15 @@ public class Page1 extends AppCompatActivity {
         set_invisible(pi_monitor); // Hides the py_monitor button
 
         if (!networking.isConnectedToInternet(this)){
-            set_status_label_raspberry(label_status, false);
+            set_status_label_raspberry(label_status, false, 1);
             //label_status.setText(Html.fromHtml("<u>Connection Internet</u> :<span style=\"color:red\"> Pas connecté </span>"));
         }
         else {
-            set_status_label_raspberry(label_status, true);
+            set_status_label_raspberry(label_status, true, 1);
             //label_status.setText(Html.fromHtml("<u>Connection Internet</u> :<span style=\"color:#00cc00\"> Connecté </span>"));
         }
 
-        set_status_label_raspberry(label_connection, false);
+        set_status_label_raspberry(label_connection, false, 2);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -66,7 +66,7 @@ public class Page1 extends AppCompatActivity {
                             }
                             else {
                                 raspberry.setIp(raspberry_static_ip);
-                                set_status_label_raspberry(label_connection, true);
+                                set_status_label_raspberry(label_connection, true, 2);
                                 set_visible(pi_monitor);
                             }
                         }
@@ -85,12 +85,16 @@ public class Page1 extends AppCompatActivity {
         });
     }
 
-    private void set_status_label_raspberry (TextView t, boolean connected){
+    private void set_status_label_raspberry (TextView t, boolean connected, int type){ // Type 1 ="internet" ou 2 => "raspbery
+        String label ="";
+        if (type == 1){ label="<u>Connection Internet</u> :"; }
+        else if (type ==2){ label="<u>Raspberry Pi</u> :"; }
+
         if (connected){
-            t.setText(Html.fromHtml("<u>Raspberry Pi</u> :<span style=\"color:#00cc00\"> Connecté </span>"));
+            t.setText(Html.fromHtml(label+"<span style=\"color:#00cc00\"> Connecté </span>"));
         }
         else {
-            t.setText(Html.fromHtml("<u>Raspberry Pi</u> :<span style=\"color:red\"> Pas connecté </span>"));
+            t.setText(Html.fromHtml(label+"<span style=\"color:red\"> Pas connecté </span>"));
         }
     }
 

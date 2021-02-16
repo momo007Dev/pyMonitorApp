@@ -31,7 +31,7 @@ public class ApiRequest {
 
     String pi_data_url = "http://localhost:5000/api/pi_data"; // GET
     String sensor_data_url = "http://localhost:5000/api/sensor_data"; // GET
-    String meteo_api_data_url = "http://api.weatherapi.com/v1/current.json?key=3d50edc14ac74d1789f122358202012&q=Wavre"; // GET
+    String meteo_api_data_url = "http://api.openweathermap.org/data/2.5/weather?q=Wavre&appid=bbf7bb6b18f44d80ef2ff76f90601099&units=metric"; // GET
 
     Activity activity;
 
@@ -178,9 +178,9 @@ public class ApiRequest {
                         try {
                             JSONObject mainObject = new JSONObject(responseBody);
 
-                            JSONObject object_current = mainObject.getJSONObject("current");
+                            JSONObject object_current = mainObject.getJSONObject("main");
 
-                            String temperature = object_current.getString("temp_c");
+                            String temperature = object_current.getString("temp");
                             String temperature_formatted = temperature.replace(".",",") + "°C";
 
                             String humidity = object_current.getString("humidity");

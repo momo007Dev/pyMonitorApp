@@ -21,7 +21,7 @@ public class Page1 extends AppCompatActivity {
 
     Networking networking = new Networking();
     Pi raspberry = new Pi();
-    String raspberry_static_ip = "192.168.0.100";
+    String raspberry_static_ip = "192.168.1.100";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
